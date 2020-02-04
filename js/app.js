@@ -18,6 +18,7 @@ class Products {
         try {
             let result = await fetch('products.json')
             let data = await result.json();
+
             let products = data.items;
             products = products.map(item => {
                 const {title,price} =item.fields;
@@ -32,7 +33,29 @@ class Products {
     }
 }   
 // Display Products
-class UI {}
+class UI {
+    displayProducts(products){
+        let result = '';
+        products.forEach(product => {
+            result += `
+        <!--Single Product-->
+        <article class="product">
+            <div class="img-container">
+                <img src=${product.image} alt="product" class="product-img" />
+                <button class="bag-btn" data-id=${product.id}>
+                    <i class="fas fa-shopping-cart"></i>
+                    Add to Bag
+                </button>
+            </div>
+            <h3>${product.title}</h3>
+            <h4>$${product.price}</h4>
+        </article>
+        <!-- End Of Single Product-->
+        `;
+        });
+
+    }
+}
 // Local Storage
 class Storage {}
 
@@ -41,5 +64,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = new Products();
 
     //get all products
-    products.getProducts().then(data => console.log(data)); 
-})
+    products.getProducts().then(products => ui.displayProducts(products))
+});
