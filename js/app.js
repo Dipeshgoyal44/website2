@@ -53,7 +53,7 @@ class UI {
         <!-- End Of Single Product-->
         `;
         });
-
+        productsDOM.innerHTML =result;
     }
 }
 // Local Storage
