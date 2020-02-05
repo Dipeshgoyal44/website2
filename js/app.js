@@ -99,4 +99,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.getBagButtons();
     });
 });
-//CLASSES DONE!
+//commit
