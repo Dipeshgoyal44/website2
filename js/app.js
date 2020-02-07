@@ -99,4 +99,3 @@ document.addEventListener("DOMContentLoaded", () => {
     ui.getBagButtons();
     });
 });
-//commitaaaaaa
